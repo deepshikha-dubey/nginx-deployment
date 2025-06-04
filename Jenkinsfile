@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Deploy to AWS') {
             steps {
-                sh 'scp index-aws.html ubuntu@AWS-IP:/var/www/html/index.html'
+                sh 'scp index-aws.html ubuntu@184.73.148.70:/var/www/html/index.html'
             }
         }
         stage('Restart Nginx') {
             steps {
-                sh 'ssh ubuntu@AWS-IP "sudo systemctl restart nginx"'
+                sh 'ssh ubuntu@184.73.148.70 "sudo systemctl restart nginx"'
             }
         }
     }
